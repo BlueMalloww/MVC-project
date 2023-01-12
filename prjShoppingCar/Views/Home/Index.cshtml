@@ -1,0 +1,29 @@
+﻿@model IEnumerable<prjShoppingCar.Models.tProduct>
+
+@{
+    ViewBag.Title = "產品列表";
+}
+
+<img src="~/images/hellogg.jpg" style="width:1150px;height:400px;"/>
+
+<b>
+    <h1>
+        Welcome to my humble online store. :)
+    </h1>
+</b>
+
+<div class="row" style="margin-top:20px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="~/images/@item.fImg" style="width:200px;height:240px;">
+                <div class="caption">
+                    <h4>@item.fName</h4>
+                    <p>單價：@item.fPrice</p>
+                    <p><a href="@Url.Action("AddCar", "Member")?fPId=@item.fPId" class="btn btn-primary">加入購物車</a></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
